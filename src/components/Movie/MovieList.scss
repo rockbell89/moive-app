@@ -1,9 +1,3 @@
 .movie-list {
-  display: flex;
-  flex-wrap: wrap;
   padding: 1rem;
-  gap: 1rem;
-  .movie-item {
-    width: calc(50% - 0.5rem);
-  }
 }

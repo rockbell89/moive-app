@@ -11,10 +11,8 @@ const MovieItem: FC<MovieItemProps> = ({ item }) => {
     <div className="movie-item">
       <figure className="movie-poster">
         <img
-          src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w1280${
-            item.poster_path
-          }`}
-          alt=""
+          src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w500${item.poster_path}`}
+          alt={`${item.original_title} 포스터 이미지`}
         />
       </figure>
       <div className="movie-desc">

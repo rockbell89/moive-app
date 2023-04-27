@@ -1,33 +1,55 @@
 import { useEffect, useState } from "react";
-import { Movie } from "../core";
+import { Movie, MovieResponse } from "../core";
 import MainMovie from "../components/MainMovie/MainMovie";
 import MovieList from "../components/Movie/MovieList";
+import useInfiniteScroll from "../hooks/useInfiniteScroll";
+import axios, { AxiosResponse } from "axios";
 
 const MainPage = () => {
-  const [movies, setMovies] = useState([]);
-  const [mainMovie, setMainMovies] = useState<Movie | null>(null);
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [totalPage, setTotalPage] = useState(0);
+  const [page, setPage] = useState(1);
+  const sentinelRef = useInfiniteScroll(
+    () => setPage((prevPage) => prevPage + 1),
+    page
+  );
 
-  const fetcher = async () => {
-    const result = await fetch(
-      `${import.meta.env.VITE_API_URL}/movie/popular?api_key=${
-        import.meta.env.VITE_API_KEY
-      }`
-    );
-    return result.json();
+  const fetchMovie = async () => {
+    try {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/movie/popular?api_key=${
+          import.meta.env.VITE_API_KEY
+        }&page=${page}`
+      );
+      if (data.results) {
+        setTotalPage(data.total_results);
+        if (page !== 1) {
+          setMovies((prevState) => {
+            const merged = [...prevState, ...data.results];
+            const uniqueMovies = Array.from(
+              new Set(merged.map((movie) => movie.id))
+            ).map((id) => {
+              return merged.find((movie) => movie.id === id);
+            });
+            return uniqueMovies;
+          });
+        } else {
+          setMovies(data.results);
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
-    fetcher().then((res) => {
-      console.log(res);
-      setMovies(res.results);
-      setMainMovies(res.results[0]);
-    });
-  }, []);
+    fetchMovie();
+  }, [page]);
 
   return (
     <div>
-      {mainMovie && <MainMovie item={mainMovie} />}
-      <MovieList items={movies} />
+      {movies && <MainMovie item={movies[0]} />}
+      <MovieList items={movies} sentinelRef={sentinelRef} />
     </div>
   );
 };

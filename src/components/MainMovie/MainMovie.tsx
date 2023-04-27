@@ -16,15 +16,15 @@ const MainMovie: React.FC<MainMovieProps> = ({ item }) => {
         />
       </figure>
       <div className="main-movie-desc">
-        <h2>{item.original_title}</h2>
+        <h2>{item?.original_title}</h2>
         <p className="main-movie-summary">
-          <span> {item.release_date}</span>
+          <span> {item?.release_date}</span>
           <span>
-            {item.vote_average} ({item.vote_count})
+            {item?.vote_average} ({item?.vote_count})
           </span>
-          <span>{item.popularity}</span>
+          <span>{item?.popularity}</span>
         </p>
-        <p>{item.overview}</p>
+        <p>{item?.overview}</p>
       </div>
     </section>
   );
