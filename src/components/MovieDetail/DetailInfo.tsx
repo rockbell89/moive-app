@@ -52,6 +52,10 @@ const DetailInfo: React.FC<DetailInfoProps> = ({ item, credit }) => {
                 {item.release_date}
               </p>
               <p>
+                <span>상영시간</span>
+                {item.runtime}
+              </p>
+              <p>
                 <span>지원언어</span>
                 {item.spoken_languages
                   .map((language) => language.name)
@@ -122,6 +126,13 @@ const DetailInfo: React.FC<DetailInfoProps> = ({ item, credit }) => {
             ))}
         </Row>
       </section>
+      {item?.homepage && (
+        <section>
+          <a href={item?.homepage} target="_blank" className="btn-homepage">
+            홈페이지
+          </a>
+        </section>
+      )}
     </div>
   );
 };

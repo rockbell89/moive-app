@@ -21,6 +21,7 @@ const DetailVisual: React.FC<DetailVisualProps> = ({ item }) => {
         <h2>
           {item?.original_title} ({dateToYear(item.release_date)})
         </h2>
+        <p>{item?.tagline}</p>
         <div className="tag-list">
           {item.genres.map((genre) => (
             <span key={genre.id} className="tag">
