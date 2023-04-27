@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { Movie, MovieResponse } from "../core";
+import { Movie } from "../core";
 import MainMovie from "../components/MainMovie/MainMovie";
 import MovieList from "../components/Movie/MovieList";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 const MainPage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [totalPage, setTotalPage] = useState(0);
   const [page, setPage] = useState(1);
   const sentinelRef = useInfiniteScroll(
     () => setPage((prevPage) => prevPage + 1),
@@ -22,7 +21,6 @@ const MainPage = () => {
         }&language=ko-KR&page=${page}`
       );
       if (data.results) {
-        setTotalPage(data.total_results);
         if (page !== 1) {
           setMovies((prevState) => {
             const merged = [...prevState, ...data.results];
