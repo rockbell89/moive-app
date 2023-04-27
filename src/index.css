@@ -12,6 +12,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --black: #181818;
+  --light-dark: #252525;
 }
 
 * {
@@ -30,6 +33,22 @@ h1 {
   line-height: 1.1;
 }
 
+p {
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
 button,
 button:hover,
 button:focus,
@@ -37,4 +56,5 @@ button:focus-visible {
   border: 0;
   background-color: transparent;
   color: inherit;
+  cursor: pointer;
 }

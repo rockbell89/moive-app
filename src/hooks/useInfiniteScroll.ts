@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 
 const options = {
-  threshold: 0.5,
+  threshold: 1,
 };
 
 const useInfiniteScroll = (callback: (page: number) => void, page: number) => {

@@ -1,0 +1,128 @@
+.movie-detail-info {
+  padding: 1rem;
+  .movie-score-info {
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
+    > div {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      color: white;
+      + div {
+        border-left: 1px solid #646464;
+      }
+    }
+    h5 {
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: #646464;
+    }
+    p {
+      line-height: 1.5;
+    }
+  }
+  .movie-detail-section {
+    padding: 1.6rem;
+    margin: 1rem 0;
+    background-color: var(--light-dark);
+    border-radius: 1rem;
+
+    h3 {
+      margin-bottom: 1rem;
+      color: white;
+    }
+    p {
+      line-height: 1.5;
+    }
+  }
+  .movie-detail-poster {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    max-width: 10rem;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+  .movie-detail-outline {
+    p {
+      margin: 1rem 0;
+      span {
+        margin-right: 1rem;
+        color: #646464;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.carousel-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-x: auto;
+  gap: 1rem;
+  > * {
+    white-space: nowrap;
+  }
+}
+
+.profile-card {
+  width: 8rem;
+  .profile-card-image {
+    border-radius: 1rem;
+    overflow: hidden;
+    width: inherit;
+    height: 10rem;
+    img {
+      aspect-ratio: 1.5;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .default-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #969696;
+      width: 100%;
+      height: 100%;
+      font-weight: bold;
+    }
+  }
+  .profile-card-info {
+    white-space: normal;
+    margin: 1rem 0;
+    text-emphasis: ceter;
+    color: #646464;
+    text-align: center;
+  }
+}
+
+.company-card {
+  border: 1px solid #646464;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 100%;
+  * {
+    height: inherit;
+  }
+  .company-logo-image {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+      aspect-ratio: 1.5;
+      object-fit: contain;
+    }
+  }
+  .company-card-info {
+    font-weight: bold;
+    display: grid;
+    width: 100%;
+    align-items: center;
+  }
+}

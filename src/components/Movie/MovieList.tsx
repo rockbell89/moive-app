@@ -16,7 +16,7 @@ const MovieList: React.FC<MovieListProps> = ({ items, sentinelRef }) => {
         <Row gutter={[16, 16]}>
           {items &&
             items.map((movie) => (
-              <Col sm={12} md={8} lg={6} key={movie.id}>
+              <Col sm={12} md={8} lg={6} xl={4} key={movie.id}>
                 <MovieItem item={movie} />
               </Col>
             ))}

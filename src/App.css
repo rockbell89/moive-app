@@ -1,6 +1,6 @@
 #root {
-  background-color: black;
-  color: white;
+  background-color: var(--black);
+  color: #969696;
 }
 
 @keyframes logo-spin {

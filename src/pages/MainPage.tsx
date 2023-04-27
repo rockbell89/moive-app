@@ -19,7 +19,7 @@ const MainPage = () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/movie/popular?api_key=${
           import.meta.env.VITE_API_KEY
-        }&page=${page}`
+        }&language=ko-KR&page=${page}`
       );
       if (data.results) {
         setTotalPage(data.total_results);
