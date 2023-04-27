@@ -1,0 +1,57 @@
+.main-movie {
+  position: relative;
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, transparent, black);
+  }
+  .main-movie-poster {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    background-color: black;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1.25;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+  }
+  .main-movie-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    z-index: 10;
+    padding: 1rem;
+    max-width: 40rem;
+    opacity: 0.7;
+
+    h2 {
+      margin: 1rem 0;
+    }
+    p {
+      margin: 1rem 0;
+      line-height: 1.4;
+      &.main-movie-summary {
+        span {
+          + span {
+            &:before {
+              content: "/";
+              margin: 0 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.movie-item {
+  .movie-poster {
+    border-radius: 1rem;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  .movie-desc {
+    margin: 1rem;
+    h3 {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+  }
+}
