@@ -4,6 +4,7 @@ import BaseLayout from "./components/layouts/BaseLayout";
 import MainPage from "./pages/MainPage";
 import DetailPage from "./pages/DetailPage";
 import { Suspense } from "react";
+import LoginPage from "./pages/LoginPage";
 
 const router = createBrowserRouter(
   [
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
       children: [
         { path: "/", element: <MainPage /> },
         { path: "/movie/:movieId", element: <DetailPage /> },
+        { path: "/login", element: <LoginPage /> },
       ],
     },
   ],

@@ -1,6 +1,26 @@
 #root {
-  background-color: var(--black);
   color: #969696;
+}
+.btn {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+.btn-primary {
+  background: rgb(63, 94, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(152, 52, 223, 1) 100%
+  );
+  color: white;
+}
+
+.w-full {
+  width: 100%;
 }
 
 @keyframes logo-spin {
