@@ -36,7 +36,7 @@
     .header-nav-group {
       display: flex;
       gap: 0.5rem;
-      button {
+      .btn-nav {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -44,6 +44,34 @@
         font-size: 1.5rem;
         width: 2rem;
         height: 2rem;
+      }
+    }
+  }
+}
+
+.header-nav-dropdown {
+  position: relative;
+  .nav-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 1rem;
+    width: 8rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: var(--black);
+    overflow: hidden;
+    .nav-dropdown-item {
+      button {
+        width: 100%;
+        padding: 1rem 0.5rem;
+        text-align: center;
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+      + .nav-dropdown-item {
+        border-top: 1px solid #b2b2b2;
       }
     }
   }

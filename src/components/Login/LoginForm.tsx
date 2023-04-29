@@ -23,7 +23,10 @@ const LoginForm = () => {
     };
 
     try {
-      const { data } = await axios.post("/api/users/login", formData);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_MONGO_API}/api/users/login`,
+        formData
+      );
       if (data.loginSuccess) {
         navigate("/", { replace: true });
         localStorage.setItem("userId", data.userId);

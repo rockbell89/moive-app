@@ -13,22 +13,25 @@ const DetailVisual: React.FC<DetailVisualProps> = ({ item }) => {
       <figure className="detail-visual-poster">
         <img
           src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w1280${
-            item?.backdrop_path
+            item?.backdrop_path || item?.poster_path
           }`}
         />
       </figure>
       <div className="detail-visual-desc">
         <h2>
-          {item?.original_title} ({dateToYear(item.release_date)})
+          {item?.original_title}
+          {item.release_date && <>({dateToYear(item?.release_date)})</>}
         </h2>
-        <p>{item?.tagline}</p>
-        <div className="tag-list">
-          {item.genres.map((genre) => (
-            <span key={genre.id} className="tag">
-              {genre.name}
-            </span>
-          ))}
-        </div>
+        {item?.tagline && <p>{item?.tagline}</p>}
+        {item.genres.length > 0 && (
+          <div className="tag-list">
+            {item.genres.map((genre) => (
+              <span key={genre.id} className="tag">
+                {genre.name}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

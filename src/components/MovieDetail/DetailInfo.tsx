@@ -14,9 +14,11 @@ const DetailInfo: React.FC<DetailInfoProps> = ({ item, credit }) => {
     <div className="movie-detail-info">
       <DetailScoreInfo item={item} />
       <DetailOutline item={item} />
-      <DetailOverview overview={item.overview} />
-      <DetailCastCrew casts={casts} />
-      <DetailProductCompany companies={item.production_companies} />
+      {item.overview.length > 0 && <DetailOverview overview={item.overview} />}
+      {casts.length > 0 && <DetailCastCrew casts={casts} />}
+      {item.production_companies.length > 0 && (
+        <DetailProductCompany companies={item.production_companies} />
+      )}
       {item?.homepage && (
         <section>
           <a href={item?.homepage} target="_blank" className="btn-homepage">

@@ -12,16 +12,20 @@ const MovieItem: FC<MovieItemProps> = ({ item }) => {
     <div className="movie-item">
       <Link to={`/movie/${item.id}`}>
         <figure className="movie-poster">
-          <img
-            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w500${
-              item.poster_path
-            }`}
-            alt={`${item.original_title} 포스터 이미지`}
-          />
+          {item.poster_path ? (
+            <img
+              src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w500${
+                item.poster_path
+              }`}
+              alt={`${item.original_title} 포스터 이미지`}
+            />
+          ) : (
+            <div className="default-image">BONGFLIX</div>
+          )}
         </figure>
-        <div className="movie-desc">
+        {/* <div className="movie-desc">
           <h3>{item.title}</h3>
-        </div>
+        </div> */}
       </Link>
     </div>
   );

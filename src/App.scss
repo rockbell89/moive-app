@@ -9,6 +9,12 @@
   padding: 1rem;
   border-radius: 0.25rem;
 }
+.btn-icon {
+  padding: 0.5rem;
+  svg {
+    font-size: 1.5rem;
+  }
+}
 .btn-primary {
   background: rgb(63, 94, 251);
   background: linear-gradient(

@@ -24,24 +24,32 @@ const DetailOutline: React.FC<DetailOutlineProps> = ({ item }) => {
               <span>제목</span>
               {item.title}
             </p>
-            <p>
-              <span>원제목</span>
-              {item.original_title}
-            </p>
-            <p>
-              <span>개봉일</span>
-              {item.release_date}
-            </p>
-            <p>
-              <span>상영시간</span>
-              {item.runtime}
-            </p>
-            <p>
-              <span>지원언어</span>
-              {item.spoken_languages
-                .map((language) => language.name)
-                .join(", ")}
-            </p>
+            {item.original_title && (
+              <p>
+                <span>원제목</span>
+                {item.original_title}
+              </p>
+            )}
+            {item.release_date && (
+              <p>
+                <span>개봉일</span>
+                {item.release_date}
+              </p>
+            )}
+            {item.runtime > 0 && (
+              <p>
+                <span>상영시간</span>
+                {item.runtime}
+              </p>
+            )}
+            {item.spoken_languages.length > 0 && (
+              <p>
+                <span>지원언어</span>
+                {item.spoken_languages
+                  .map((language) => language.name)
+                  .join(", ")}
+              </p>
+            )}
           </div>
         </Col>
       </Row>
