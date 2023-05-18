@@ -56,6 +56,7 @@ export interface MovieDetail {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  images: Images;
   videos: {
     results: Video[];
   };
@@ -72,4 +73,19 @@ export interface Video {
   type: string;
   official: true;
   published_at: Date | string;
+}
+
+export interface Images {
+  backdrops: Image[];
+  logos: Image[];
+  posters: Image[];
+}
+export interface Image {
+  aspect_ratio: number;
+  height: number;
+  iso_639_1: string;
+  file_path: string;
+  vote_average: number;
+  vote_count: number;
+  width: number;
 }
