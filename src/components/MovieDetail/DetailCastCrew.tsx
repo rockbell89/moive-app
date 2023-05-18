@@ -28,6 +28,11 @@ const DetailCastCrew: React.FC<DetailCastCrewProps> = ({ casts }) => {
               </figure>
               <div className="profile-card-info">
                 <h5>{cast.character}</h5>
+                {cast.name && (
+                  <p>
+                    {cast.name} / {cast.known_for_department}
+                  </p>
+                )}
               </div>
             </div>
           ))}

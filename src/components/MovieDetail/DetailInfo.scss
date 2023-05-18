@@ -97,9 +97,14 @@
   .profile-card-info {
     white-space: normal;
     margin: 1rem 0;
-    text-emphasis: ceter;
+    text-align: center;
     color: #646464;
     text-align: center;
+    p {
+      font-size: 0.75rem;
+      line-height: 1.2;
+      margin-top: 0.25rem;
+    }
   }
 }
 

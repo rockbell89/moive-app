@@ -6,6 +6,7 @@ import DetailOverview from "./DetailOverview";
 import DetailCastCrew from "./DetailCastCrew";
 import DetailProductCompany from "./DetailProductCompany";
 import "./DetailInfo.scss";
+import DetailMedia from "./DetailMedia";
 
 const DetailInfo: React.FC<DetailInfoProps> = ({ item, credit }) => {
   const { cast: casts } = credit;
@@ -16,6 +17,9 @@ const DetailInfo: React.FC<DetailInfoProps> = ({ item, credit }) => {
       <DetailOutline item={item} />
       {item.overview.length > 0 && <DetailOverview overview={item.overview} />}
       {casts.length > 0 && <DetailCastCrew casts={casts} />}
+      {item.videos.results.length > 0 && (
+        <DetailMedia videos={item.videos.results} />
+      )}
       {item.production_companies.length > 0 && (
         <DetailProductCompany companies={item.production_companies} />
       )}

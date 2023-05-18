@@ -17,7 +17,7 @@ const DetailPage = () => {
     const { data } = await axios.get(
       `${import.meta.env.VITE_API_URL}/movie/${movieId}?api_key=${
         import.meta.env.VITE_API_KEY
-      }&language=ko-KR`
+      }&language=ko-KR&append_to_response=videos`
     );
     if (data) {
       setMovieInfo(data);

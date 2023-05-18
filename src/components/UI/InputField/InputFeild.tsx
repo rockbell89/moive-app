@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from "react";
+import React, { ChangeEvent } from "react";
 import "./InputFeild.scss";
 import { defaultProps } from "../../../core";
 import { AiOutlineClose } from "react-icons/ai";
