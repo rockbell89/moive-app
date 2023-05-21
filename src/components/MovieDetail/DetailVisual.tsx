@@ -2,6 +2,7 @@ import React from "react";
 import { MovieDetail } from "../../core/interfaces/movie-detail.interface";
 import "./DetailVisual.scss";
 import { dateToYear } from "../../core";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 
 interface DetailVisualProps {
   item: MovieDetail;
@@ -12,9 +13,10 @@ const DetailVisual: React.FC<DetailVisualProps> = ({ item }) => {
     <section className="detail-visual">
       <figure className="detail-visual-poster">
         <img
-          src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w1280${
-            item?.backdrop_path || item?.poster_path
-          }`}
+          src={imageApi(
+            item?.backdrop_path || item?.poster_path,
+            IMAGE_SIZE.LG
+          )}
         />
       </figure>
       <div className="detail-visual-desc">

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import NavSearchForm from "./NavSearchForm/NavSearchForm";
 import "./Header.scss";
+import { api } from "../../uils";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,9 +20,7 @@ const Header = () => {
   };
 
   const onLogoutHander = async () => {
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_MONGO_API}/api/users/logout`
-    );
+    const { data } = await api.get("/users/logout");
     if (data.success) {
       localStorage.removeItem("userId");
       navigate("/login");

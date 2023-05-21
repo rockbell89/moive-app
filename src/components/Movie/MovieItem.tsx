@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Movie } from "../../core";
 import "./MovieItem.scss";
 import { Link } from "react-router-dom";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 
 interface MovieItemProps {
   item: Movie;
@@ -14,9 +15,7 @@ const MovieItem: FC<MovieItemProps> = ({ item }) => {
         <figure className="movie-poster">
           {item.poster_path ? (
             <img
-              src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w500${
-                item.poster_path
-              }`}
+              src={imageApi(item.poster_path, IMAGE_SIZE.MD)}
               alt={`${item.original_title} 포스터 이미지`}
             />
           ) : (

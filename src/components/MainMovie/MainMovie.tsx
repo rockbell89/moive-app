@@ -1,4 +1,5 @@
 import { Movie } from "../../core";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 import "./MainMovie.scss";
 
 interface MainMovieProps {
@@ -9,11 +10,7 @@ const MainMovie: React.FC<MainMovieProps> = ({ item }) => {
   return (
     <section className="main-movie">
       <figure className="main-movie-poster">
-        <img
-          src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w1280${
-            item?.backdrop_path
-          }`}
-        />
+        <img src={imageApi(item?.backdrop_path, IMAGE_SIZE.LG)} />
       </figure>
       <div className="main-movie-desc">
         <h2>{item?.original_title}</h2>

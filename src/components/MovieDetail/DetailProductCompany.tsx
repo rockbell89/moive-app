@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "antd";
 import { ProductionCompany } from "../../core";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 
 interface DetailProductCompanyProps {
   companies: ProductionCompany[];
@@ -22,9 +23,7 @@ const DetailProductCompany: React.FC<DetailProductCompanyProps> = ({
                     <Col span={6}>
                       <figure className="company-logo-image">
                         <img
-                          src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w500${
-                            company.logo_path
-                          }`}
+                          src={imageApi(company.logo_path, IMAGE_SIZE.MD)}
                           alt={`${company.name} 로고 이미지`}
                         />
                       </figure>

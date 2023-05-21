@@ -1,6 +1,7 @@
 import React from "react";
 import { Image } from "../../core";
 import "./DetailImages.scss";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 
 interface DetailImagesProps {
   logos?: Image[];
@@ -23,9 +24,7 @@ const DetailImages: React.FC<DetailImagesProps> = ({
             <div key={index} className="image-card">
               {logo.file_path ? (
                 <img
-                  src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w200${
-                    logo.file_path
-                  }`}
+                  src={imageApi(logo.file_path, IMAGE_SIZE.SM)}
                   alt={`로고 이미지`}
                 />
               ) : (
@@ -41,9 +40,7 @@ const DetailImages: React.FC<DetailImagesProps> = ({
             <div key={index} className="image-card">
               {poster.file_path ? (
                 <img
-                  src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w200${
-                    poster.file_path
-                  }`}
+                  src={imageApi(poster.file_path, IMAGE_SIZE.SM)}
                   alt={`포스터 이미지`}
                 />
               ) : (
@@ -59,9 +56,7 @@ const DetailImages: React.FC<DetailImagesProps> = ({
             <div key={index} className="image-card">
               {backdrops.file_path ? (
                 <img
-                  src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w200${
-                    backdrops.file_path
-                  }`}
+                  src={imageApi(backdrops.file_path, IMAGE_SIZE.SM)}
                   alt={`포스터 이미지`}
                 />
               ) : (

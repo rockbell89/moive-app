@@ -1,4 +1,5 @@
 import { Movie } from "../../core";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 import "./SearchVisual.scss";
 
 interface SearchVisualProps {
@@ -10,11 +11,7 @@ const SearchVisual: React.FC<SearchVisualProps> = ({ item, totalCount }) => {
   return (
     <section className="search-visual">
       <figure className="search-visual-poster">
-        <img
-          src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w1280${
-            item?.backdrop_path
-          }`}
-        />
+        <img src={imageApi(item?.backdrop_path, IMAGE_SIZE.LG)} />
       </figure>
       <div className="search-visual-desc">
         <h2>SEARCH</h2>

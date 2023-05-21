@@ -3,7 +3,7 @@ import { Movie } from "../core";
 import MainMovie from "../components/MainMovie/MainMovie";
 import MovieList from "../components/Movie/MovieList";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
-import axios from "axios";
+import { movieApi } from "../uils";
 
 const MainPage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -19,11 +19,8 @@ const MainPage = () => {
 
   const fetchMovies = async () => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/movie/now_playing?api_key=${
-          import.meta.env.VITE_API_KEY
-        }&language=ko-KR&page=${page}`
-      );
+      const { data } = await movieApi.get("/movie/now_playing");
+
       if (data.results) {
         setTotalPage(data.total_pages);
         if (isVisible && page > 1) {

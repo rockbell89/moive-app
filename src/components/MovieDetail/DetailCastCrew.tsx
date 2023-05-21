@@ -1,5 +1,6 @@
 import React from "react";
 import { Cast } from "../../core";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 
 interface DetailCastCrewProps {
   casts: Cast[];
@@ -17,9 +18,7 @@ const DetailCastCrew: React.FC<DetailCastCrewProps> = ({ casts }) => {
               <figure className="profile-card-image">
                 {cast.profile_path ? (
                   <img
-                    src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w500${
-                      cast.profile_path
-                    }`}
+                    src={imageApi(cast.profile_path, IMAGE_SIZE.MD)}
                     alt={`${cast.character} 이미지`}
                   />
                 ) : (

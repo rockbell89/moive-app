@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import { MovieDetail } from "../../core";
+import { IMAGE_SIZE, imageApi } from "../../uils";
 
 interface DetailOutlineProps {
   item: MovieDetail;
@@ -11,11 +12,7 @@ const DetailOutline: React.FC<DetailOutlineProps> = ({ item }) => {
       <Row gutter={[16, 16]}>
         <Col span={8}>
           <figure className="movie-detail-poster">
-            <img
-              src={`${import.meta.env.VITE_IMAGE_BASE_URL}/w500${
-                item?.poster_path
-              }`}
-            />
+            <img src={imageApi(item?.poster_path, IMAGE_SIZE.MD)} />
           </figure>
         </Col>
         <Col span={16}>

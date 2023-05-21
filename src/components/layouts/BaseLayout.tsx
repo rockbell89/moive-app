@@ -2,6 +2,7 @@ import { Outlet, useLocation, useParams } from "react-router-dom";
 import Header from "./Header";
 import { useEffect } from "react";
 import axios from "axios";
+import { api } from "../../uils";
 
 const BaseLayout = () => {
   const { pathname } = useLocation();
@@ -14,12 +15,7 @@ const BaseLayout = () => {
   useEffect(() => {
     const auth = async () => {
       try {
-        const { data } = await axios.get(
-          `${import.meta.env.VITE_MONGO_API}/api/users/auth`,
-          {
-            withCredentials: true,
-          }
-        );
+        const { data } = await api.get("/users/auth");
         console.log("auth", data);
       } catch (error) {
         console.error(error);

@@ -1,7 +1,7 @@
-import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import "./LoginForm.scss";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../uils";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -23,10 +23,8 @@ const LoginForm = () => {
     };
 
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_MONGO_API}/api/users/login`,
-        formData
-      );
+      const { data } = await api.post("/users/login", formData);
+
       if (data.loginSuccess) {
         navigate("/", { replace: true });
         localStorage.setItem("userId", data.userId);
