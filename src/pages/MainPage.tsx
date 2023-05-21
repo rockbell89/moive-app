@@ -20,7 +20,7 @@ const MainPage = () => {
   const fetchMovies = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/movie/popular?api_key=${
+        `${import.meta.env.VITE_API_URL}/movie/now_playing?api_key=${
           import.meta.env.VITE_API_KEY
         }&language=ko-KR&page=${page}`
       );
@@ -54,7 +54,7 @@ const MainPage = () => {
     } else {
       fetchMovies();
     }
-  }, [page]);
+  }, [page, totalPage]);
 
   return (
     <div>

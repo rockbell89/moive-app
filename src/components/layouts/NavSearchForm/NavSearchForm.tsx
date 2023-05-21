@@ -1,11 +1,7 @@
-import {
-  AiOutlineClose,
-  AiOutlineCloseCircle,
-  AiOutlineSearch,
-} from "react-icons/ai";
+import { AiOutlineCloseCircle, AiOutlineSearch } from "react-icons/ai";
 import InputFeild from "../../UI/InputField/InputFeild";
 import "./NavSearchForm.scss";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import useInput from "../../../hooks/useInput";
 
@@ -27,7 +23,7 @@ const NavSearchForm: React.FC<NavSearchFormProps> = ({ onClose }) => {
   const onSubmitHandler = (event: FormEvent) => {
     event.preventDefault();
     navigate(`/search?query=${data.search}`);
-    window.location.reload();
+    // window.location.reload();
   };
 
   useEffect(() => {

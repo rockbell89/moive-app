@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, redirect, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const GuestLayout = () => {
   const navigate = useNavigate();

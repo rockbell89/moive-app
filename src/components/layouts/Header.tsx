@@ -78,7 +78,7 @@ const Header = () => {
               >
                 <AiOutlineSearch />
               </button>
-              {/* <div className="header-nav-dropdown">
+              <div className="header-nav-dropdown">
                 <button
                   className="btn-nav btn-nav-menu-toggle"
                   onClick={onMenuHandler}
@@ -98,7 +98,7 @@ const Header = () => {
                     )}
                   </div>
                 )}
-              </div> */}
+              </div>
             </div>
           </div>
         </header>

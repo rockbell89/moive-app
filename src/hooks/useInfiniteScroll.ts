@@ -16,6 +16,7 @@ const useInfiniteScroll = (
     (entries) => {
       const target = entries[0];
       console.log(target.isIntersecting);
+      if (!target.isIntersecting) return;
       if (target.isIntersecting) {
         callback();
       }
