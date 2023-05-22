@@ -4,7 +4,8 @@ import DetailVisual from "../components/MovieDetail/DetailVisual";
 import { MovieDetail } from "../core/interfaces/movie-detail.interface";
 import DetailInfo from "../components/MovieDetail/DetailInfo";
 import { CreditResponse } from "../core/interfaces/movie-credits.interface";
-import { movieApi } from "../uils";
+import { api, movieApi } from "../uils";
+import DetailFavorite from "../components/MovieDetail/DetailFavorite";
 
 const DetailPage = () => {
   const { movieId } = useParams();
@@ -13,6 +14,7 @@ const DetailPage = () => {
     cast: [],
     crew: [],
   });
+
   const fetchMovieInfo = async () => {
     const { data } = await movieApi.get(`/movie/${movieId}`, {
       language: "ko-KR",
@@ -45,6 +47,7 @@ const DetailPage = () => {
       {movieInfo && (
         <div>
           <DetailVisual item={movieInfo} />
+          {movieId && <DetailFavorite movieId={movieId} />}
           <DetailInfo item={movieInfo} credit={movieCredit} />
         </div>
       )}
